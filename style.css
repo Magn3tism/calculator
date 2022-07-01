@@ -1,20 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+body {
+    background-color: #1D2225;
+    font-family: "Fira Sans", 'Times New Roman', Times, serif;
+}
+
 main {
     display: flex;
     flex-direction: column;
+    margin: 50px auto;
+    box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+    width: 300px;
+    border-radius: 5px;
 }
 
 #screen {
-    height: 100px;
-    width: 500px;
-    border: 1px solid black;
+    height: 130px;
+    background-color: #EBEDEC;
+    border-radius: 5px 5px 0 0;
+    color: #565656;
 }
 
 .buttons {
     display: flex;
-    width: 500px;
-    height: 50px;
+    height: 70px;
 }
 
 button {
     flex: 1;
+    border: none;
+    background-color: #1C2124;
+    color: white;
+    border-right: 1px solid #23272A;
+    border-bottom: 1px solid #23272A;
+    font-size: 14px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #3f4347;
+}
+
+.end-buttons {
+    border-right: none;
+    background-color: #5E4AB7;
+    border-bottom: 1px solid #6650BE;
+}
+
+.end-buttons:hover {
+    background-color: #816ed2;
+}
+
+.bottom-buttons {
+    border-bottom: none;
+}
+
+.end-buttons.bottom-buttons {
+    background-color: #F4BA06;
+    border-radius: 0 0 5px 0;
+    color: #5f470a;
+}
+
+.end-buttons.bottom-buttons:hover {
+    background-color: #ff9900;
+}
+
+.bottom-buttons.start-button {
+    border-radius: 0 0 0 5px;
 }
