@@ -1,5 +1,8 @@
-const numberButtons = document.getElementsByClassName("number");
-const operatorButtons = document.getElementsByClassName("operator");
+const numberButtons = Array.from(document.getElementsByClassName("number"));
+const operatorButtons = Array.from(document.getElementsByClassName("operator"));
+const result = document.getElementById("result");
+
+let string = "";
 
 function add(a, b) {
   return a + b;
@@ -33,3 +36,21 @@ function operate(string) {
     return divide(Number(operand[0]), Number(operand[1]));
   }
 }
+
+numberButtons.forEach((numberButton) => {
+  numberButton.addEventListener("click", (e) => {
+    console.log(e.target.dataset.value);
+    string += e.target.dataset.value;
+  });
+});
+
+operatorButtons.forEach((operatorButton) => {
+  operatorButton.addEventListener("click", (e) => {
+    console.log(e.target.dataset.value);
+    string += e.target.dataset.value;
+  });
+});
+
+result.addEventListener("click", () => {
+  console.log(operate(string));
+});
