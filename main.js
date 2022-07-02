@@ -1,8 +1,11 @@
 const numberButtons = Array.from(document.getElementsByClassName("number"));
 const operatorButtons = Array.from(document.getElementsByClassName("operator"));
 const result = document.getElementById("result");
+const current = document.getElementById("current");
+const previous = document.getElementById("previous");
 
 let string = "";
+let numString = "";
 
 function add(a, b) {
   return a + b;
@@ -39,8 +42,9 @@ function operate(string) {
 
 numberButtons.forEach((numberButton) => {
   numberButton.addEventListener("click", (e) => {
-    console.log(e.target.dataset.value);
     string += e.target.dataset.value;
+    numString += e.target.dataset.value;
+    current.textContent = numString;
   });
 });
 
@@ -55,12 +59,16 @@ operatorButtons.forEach((operatorButton) => {
       string = String(operate(string));
       console.log(`O: ${string}`);
     }
-    console.log(e.target.dataset.value);
     string += e.target.dataset.value;
+    previous.textContent = string;
+    numString = "";
   });
 });
 
 result.addEventListener("click", () => {
-  console.log(operate(string));
+  previous.textContent = string;
+  string = operate(string);
+  current.textContent = string;
   string = "";
+  numString = "";
 });
