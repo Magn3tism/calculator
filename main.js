@@ -46,6 +46,15 @@ numberButtons.forEach((numberButton) => {
 
 operatorButtons.forEach((operatorButton) => {
   operatorButton.addEventListener("click", (e) => {
+    if (
+      string.includes("+") ||
+      string.includes("-") ||
+      string.includes("×") ||
+      string.includes("÷")
+    ) {
+      string = String(operate(string));
+      console.log(`O: ${string}`);
+    }
     console.log(e.target.dataset.value);
     string += e.target.dataset.value;
   });
@@ -53,4 +62,5 @@ operatorButtons.forEach((operatorButton) => {
 
 result.addEventListener("click", () => {
   console.log(operate(string));
+  string = "";
 });
